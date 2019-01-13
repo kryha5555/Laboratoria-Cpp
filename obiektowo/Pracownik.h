@@ -19,7 +19,7 @@ public:
 	void Wpisz();
 	int SprawdzImie(const char* por_imie) const;
 	int SprawdzNazwisko(const char* por_nazwisko) const;
-	int GetID();
+	int GetID() const;
 	Pracownik* m_pNastepny;
 	int Porownaj(const Pracownik& wzorzec) const;
 
@@ -32,7 +32,8 @@ public:
 	virtual void WypiszDane();
 	virtual Pracownik *KopiaObiektu();
 
-private:
+//private:
+protected:
 	Napis m_Imie;
 	Napis m_Nazwisko;
 	Data m_DataUrodzenia;

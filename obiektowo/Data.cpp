@@ -43,7 +43,7 @@ int Data::Rok() const
 
 void Data::Wypisz() const
 {
-	std::cout << Dzien() << "-" << Miesiac() << "-" << Rok() << std::endl;
+	std::cout << Dzien() << "-" << Miesiac() << "-" << Rok();
 }
 
 void Data::Wpisz()

@@ -76,7 +76,7 @@ int Pracownik::SprawdzNazwisko(const char* por_nazwisko) const
 	return m_Nazwisko.SprawdzNapis(por_nazwisko);
 }
 
-int Pracownik::GetID()
+int Pracownik::GetID() const
 {
 	return m_nIDZatrudnienia;
 }
@@ -120,11 +120,20 @@ bool Pracownik::operator==(const Pracownik & wzor) const
 
 void Pracownik::WypiszDane()
 {
+	std::cout << "ID: " << m_nIDZatrudnienia << '\t';
+	m_Imie.Wypisz();
+	std::cout << '\t';
+	m_Nazwisko.Wypisz();
+	std::cout << '\t';
+	m_DataUrodzenia.Wypisz();
+	std::cout << std::endl;
 }
 
 Pracownik * Pracownik::KopiaObiektu()
 {
-	return nullptr;
+	Pracownik* nowyPracownik;
+	nowyPracownik = new Pracownik(*this);
+	return nowyPracownik;
 }
 
 std::ostream & operator<<(std::ostream & wy, const Pracownik & p)
