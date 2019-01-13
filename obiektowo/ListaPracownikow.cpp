@@ -1,7 +1,6 @@
 #include "ListaPracownikow.h"
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <algorithm>
 
 ListaPracownikow::ListaPracownikow()
@@ -128,7 +127,7 @@ void ListaPracownikow::Usun(const Pracownik& wzorzec)
 					prev->m_pNastepny = current->m_pNastepny;
 
 				m_nLiczbaPracownikow--;
-				std::cout << "Usunieto pracownika." << std::endl << std::endl;
+				std::cout <<std::endl << "Usunieto pracownika." << std::endl << std::endl;
 				return;
 			}
 			else
@@ -167,7 +166,7 @@ void ListaPracownikow::WypiszPracownikow() const
 		for (int i = 1; i <= m_nLiczbaPracownikow; i++)
 		{
 			std::cout << "Pracownik #" << i << ": ";
-			current->Wypisz();
+			current->WypiszDane();
 			current = current->m_pNastepny;
 		}
 
@@ -196,7 +195,7 @@ const Pracownik* ListaPracownikow::Szukaj(const char* nazwisko, const char* imie
 			if ((current->SprawdzImie(imie) == 0) && (current->SprawdzNazwisko(nazwisko) == 0))
 			{
 				std::cout << "Znaleziono pracownika: ";
-				current->Wypisz();
+				current->WypiszDane();
 				return current;
 			}
 			else
@@ -251,18 +250,19 @@ int ListaPracownikow::WczytajZPliku()
 		m_nLiczbaPracownikow = 0;
 		m_pPoczatek = NULL;
 		int ID{ 1 };
-		std::vector<int> IDs;
+		int maxID = INT_MIN;
 		Pracownik *temp = new Pracownik(-1);
 		while (plik >> *temp)
 		{
-			IDs.push_back(temp->GetID());
+			if (temp->GetID() > maxID)
+				maxID = temp->GetID();
 			Dodaj(*temp);
 
 			temp = new Pracownik(++ID);
 		}
 
 		std::cout << "Dodano " << ID - 1 << " pracownikow." << std::endl << std::endl;
-		return (*std::max_element(IDs.begin(), IDs.end())) + 1;
+		return maxID + 1;
 	}
 
 }

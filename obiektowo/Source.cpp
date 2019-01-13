@@ -3,6 +3,7 @@
 #include "Napis.h"
 #include "Pracownik.h"
 #include "ListaPracownikow.h"
+#include "Kierownik.h"
 
 using namespace std;
 
@@ -44,10 +45,12 @@ int main()
 
 	ListaPracownikow lista;
 	Pracownik *nowy;
-	Napis imie, nazwisko;
+	Kierownik *nowyk;
+	Napis imie, nazwisko, nazwa;
 	bool toExit{ 0 };
 	int ID{ 1 };
 	int w;
+	int liczba;
 
 	while (!toExit) 
 	{
@@ -58,6 +61,7 @@ int main()
 		cout << "4. Wyszukaj pracownika." << endl;
 		cout << "5. Wczytaj z pliku." << endl;
 		cout << "6. Zapisz do pliku." << endl;
+		cout << "7. Dodaj kierownika." << endl;
 		cout << "9. Usun cala liste." << endl;
 		cout << "0. Wyjscie." << endl;
 		cout << "Wybierz akcje: ";
@@ -103,6 +107,17 @@ int main()
 			break;
 		case 6:
 			lista.ZapisDoPliku();
+			break;
+		case 7:
+			cin.clear();
+			cout << "Podaj nazwe dzialu: ";
+			cin >> nazwa;
+			cout << "Podaj liczbe pracownikow w dziale: ";
+			cin >> liczba;
+			nowyk = new Kierownik(ID, nazwa, liczba);
+			nowyk->Wpisz();
+			lista.Dodaj(*nowyk);
+			ID++;
 			break;
 		case 9:
 			lista.~ListaPracownikow();

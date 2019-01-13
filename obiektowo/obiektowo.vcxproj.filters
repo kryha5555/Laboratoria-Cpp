@@ -27,6 +27,9 @@
     <ClInclude Include="ListaPracownikow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Kierownik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Data.cpp">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ListaPracownikow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kierownik.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

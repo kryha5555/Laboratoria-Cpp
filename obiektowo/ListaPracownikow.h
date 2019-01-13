@@ -1,5 +1,6 @@
 #pragma once
 #include "Pracownik.h"
+#include "Kierownik.h"
 
 class ListaPracownikow
 {
