@@ -14,7 +14,8 @@ Kierownik::Kierownik(int id, Napis nazwa, int liczba)
 Kierownik::Kierownik(const Kierownik & wzor)
 	: m_NazwaDzialu{ wzor.m_NazwaDzialu }
 	, m_nLiczbaPracownikow{ wzor.m_nLiczbaPracownikow }
-	, Pracownik(wzor.GetID(), wzor.Imie(), wzor.Nazwisko(), wzor.m_DataUrodzenia.Dzien(), wzor.m_DataUrodzenia.Miesiac(), wzor.m_DataUrodzenia.Rok())
+//	, Pracownik(wzor.GetID(), wzor.Imie(), wzor.Nazwisko(), wzor.m_DataUrodzenia.Dzien(), wzor.m_DataUrodzenia.Miesiac(), wzor.m_DataUrodzenia.Rok())
+	, Pracownik(wzor)
 {
 
 }
